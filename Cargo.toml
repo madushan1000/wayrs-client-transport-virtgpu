@@ -1,0 +1,24 @@
+[package]
+name = "wayrs-client-transport-virtgpu"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wayrs-client = "1.0.3"
+wayrs-core = "0.1.0"
+nix = { version = "0.27.0", features = ["ioctl", "mman"] }
+
+[dev-dependencies]
+wayrs-egl = "0.5.0"
+wayrs-client = { version = "1.0.2", features = ["tokio"] }
+wayrs-protocols = { version = "0.13.1", features = ["xdg-shell", "linux-dmabuf-unstable-v1"] }
+wayrs-utils = { version = "0.14.0", features = ["dmabuf_feedback"]}
+gles31 = "1.0"
+tokio = { version = "1.25.0", features = ["full"] }
+
+[patch.crates-io]
+wayrs-client = { path = "../rust-deps/wayrs/wayrs-client" }
+wayrs-core = { path = "../rust-deps/wayrs/wayrs-core" }
+wayrs-protocols = { path = "../rust-deps/wayrs/wayrs-protocols" }
+wayrs-utils = { path = "../rust-deps/wayrs/wayrs-utils" }
+wayrs-egl = { path = "../rust-deps/wayrs/wayrs-egl" }
